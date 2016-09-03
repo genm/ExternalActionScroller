@@ -10,31 +10,25 @@ import android.widget.ListView;
  */
 public class ExternalActionScrollLayout implements ScrollDirectionLister{
     private ListView listView;
-    private RecyclerView recyclerView;
-    private KeyEvent upScrollKey;
-    private KeyEvent downScrollKey;
+    private int upScrollKey;
+    private int downScrollKey;
 
     public static class Builder{
         private ListView listView;
-        private RecyclerView recyclerView;
-
-        private KeyEvent upScrollKey;
-        private KeyEvent downScrollKey;
+        private int upScrollKey;
+        private int downScrollKey;
 
 
-        Builder(ListView listView){
+        public Builder(ListView listView){
             this.listView = listView;
         }
-        Builder(RecyclerView recyclerView){
-            this.recyclerView = recyclerView;
-        }
-        Builder scrollKey(KeyEvent upScrollKey,KeyEvent downScrollKey){
+        public Builder scrollKey(int upScrollKey,int downScrollKey){
             this.upScrollKey = upScrollKey;
             this.downScrollKey = downScrollKey;
             return this;
         }
-        ExternalActionScrollLayout build(){
-            if(listView == null && recyclerView == null){
+        public ExternalActionScrollLayout build(){
+            if(listView == null){
                 throw new NullPointerException();
             }
             return new ExternalActionScrollLayout(this);
@@ -42,9 +36,8 @@ public class ExternalActionScrollLayout implements ScrollDirectionLister{
 
     }
 
-    private ExternalActionScrollLayout(Builder builder){
+    public ExternalActionScrollLayout(Builder builder){
         if(listView != null)this.listView = builder.listView;
-        if(recyclerView != null)this.recyclerView = builder.recyclerView;
         this.upScrollKey = builder.upScrollKey;
         this.downScrollKey = builder.downScrollKey;
 
