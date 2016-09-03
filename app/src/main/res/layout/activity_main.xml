@@ -19,14 +19,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button"/>
+            android:text="@string/ListViewExample"
+            android:id="@+id/list_example_button"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button2"/>
+            android:text="@string/RecyclerViewSample"
+            android:id="@+id/recycler_example_button"/>
 
         <Button
             android:layout_width="wrap_content"
