@@ -1,8 +1,11 @@
 package jp.yitt.mylibrary;
 
-import android.support.v7.widget.RecyclerView;
+import android.app.Activity;
+import android.content.Context;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.KeyEvent;
-import android.widget.AbsListView;
+import android.view.View;
 import android.widget.ListView;
 
 /**
@@ -21,10 +24,12 @@ public class ExternalActionScrollLayout implements ScrollDirectionLister{
 
         public Builder(ListView listView){
             this.listView = listView;
+
         }
         public Builder scrollKey(int upScrollKey,int downScrollKey){
             this.upScrollKey = upScrollKey;
             this.downScrollKey = downScrollKey;
+
             return this;
         }
         public ExternalActionScrollLayout build(){
@@ -33,27 +38,72 @@ public class ExternalActionScrollLayout implements ScrollDirectionLister{
             }
             return new ExternalActionScrollLayout(this);
         }
-
     }
 
     public ExternalActionScrollLayout(Builder builder){
-        if(listView != null)this.listView = builder.listView;
-        this.upScrollKey = builder.upScrollKey;
-        this.downScrollKey = builder.downScrollKey;
+            this.listView = builder.listView;
+            this.upScrollKey = builder.upScrollKey;
+            this.downScrollKey = builder.downScrollKey;
 
+    }
+    public void setScrollKey(int upScrollKey, int downScrollKey){
+        this.upScrollKey = upScrollKey;
+        this.downScrollKey = downScrollKey;
+    }
+
+    public void start(){
+
+        listView.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                switch (event.getAction()){
+                    case KeyEvent.ACTION_UP:
+                        if (keyCode == upScrollKey){
+
+                            return true;
+                        }
+                        if (keyCode == downScrollKey){
+
+                            return true;
+                        }
+
+                        break;
+                    case KeyEvent.ACTION_DOWN:
+                        if (keyCode == upScrollKey)return true;
+                        if (keyCode == downScrollKey)return true;
+
+
+                        break;
+                }
+                
+                return false;
+            }
+
+        });
+
+
+    }
+    private void setListViewKeyEvent(){
+
+    }
+
+    public void setDuration(int duration){
+        //
     }
 
     @Override
     public void onScrollDown() {
-
+        //listView.smoo
     }
 
     @Override
     public void onScrollUp() {
-        //smoothScrollToPosition()
+
     }
 
 
 
 
 }
+
