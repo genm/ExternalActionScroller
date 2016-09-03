@@ -15,6 +15,9 @@ public class ExternalActionScrollLayout implements ScrollDirectionLister{
     private ListView listView;
     private int upScrollKey;
     private int downScrollKey;
+    private boolean reverceEnabled = false;
+    private int scrollDuration = 1200;
+    private int scrollDistance = 250;
 
     public static class Builder{
         private ListView listView;
@@ -52,39 +55,64 @@ public class ExternalActionScrollLayout implements ScrollDirectionLister{
     }
 
     public void start(){
+        if (listView != null){
+            setListViewKeyEvent();
+        }
 
+
+    }
+    public void setReverseEnabled(boolean state){
+        this.reverceEnabled = state;
+    }
+
+    private void setListViewKeyEvent(){
         listView.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
-                switch (event.getAction()){
+                switch (event.getAction()) {
                     case KeyEvent.ACTION_UP:
-                        if (keyCode == upScrollKey){
+                        if (keyCode == upScrollKey) {
 
+                            if (reverceEnabled) {
+                                listView.smoothScrollBy(scrollDistance, scrollDuration);
+                            } else {
+                                listView.smoothScrollBy(-scrollDistance, scrollDuration);
+                            }
                             return true;
                         }
-                        if (keyCode == downScrollKey){
-
+                        if (keyCode == downScrollKey) {
+                            if (reverceEnabled) {
+                                listView.smoothScrollBy(-scrollDistance, scrollDuration);
+                            } else {
+                                listView.smoothScrollBy(scrollDistance, scrollDuration);
+                            }
                             return true;
                         }
 
-                        break;
                     case KeyEvent.ACTION_DOWN:
-                        if (keyCode == upScrollKey)return true;
-                        if (keyCode == downScrollKey)return true;
+                        if (keyCode == upScrollKey) {
+                            if (event.isLongPress()) {
+                            } else {
 
+                            }
+                            return true;
+                        }
+                        if (keyCode == downScrollKey) {
+                            if (event.isLongPress()) {
 
-                        break;
+                            } else {
+
+                            }
+                            return true;
+
+                        }
                 }
-                
+
                 return false;
             }
 
         });
-
-
-    }
-    private void setListViewKeyEvent(){
 
     }
 
