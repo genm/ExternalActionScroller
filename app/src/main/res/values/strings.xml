@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ExternalActionScrollLayout</string>
+    <string name="ListViewExample">ListViewExample</string>
+    <string name="RecyclerViewSample">RecyclerViewSample</string>
 </resources>

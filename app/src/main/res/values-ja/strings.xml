@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ExternalActionScrollLayout</string>
+    <string name="ListViewExample">ListViewサンプル</string>
+    <string name="RecyclerViewSample">RecyclerViewサンプル</string>
+</resources>
