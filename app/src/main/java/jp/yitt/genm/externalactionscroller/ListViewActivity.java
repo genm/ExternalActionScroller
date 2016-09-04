@@ -29,8 +29,5 @@ public class ListViewActivity extends AppCompatActivity {
 
         ExternalActionScroller easl = new ExternalActionScroller.Builder(listView).key(KeyEvent.KEYCODE_VOLUME_UP, KeyEvent.KEYCODE_VOLUME_DOWN).build();
 
-        easl.start();
-
-
     }
 }
