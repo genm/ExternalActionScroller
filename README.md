@@ -7,6 +7,7 @@ ExternalActionScroller is Android library for scrollable view component(Ex. List
 * ListView
 * RecyclerView
 
+
 # How do I use it?
 ## Setup
 Gradle
@@ -18,7 +19,12 @@ Gradle
 
 
 ## Available Keycode
+### Hardware Key
 
+### KeyEvent Macro
+
+
+### 
 
 [KeyEvent AndroidDevelop](https://developer.android.com/reference/android/view/KeyEvent.html)
 
@@ -76,9 +82,9 @@ public class RecyclerViewActivity extends AppCompatActivity {
 ```
 
 ## Options
-* ```key(int upScrollKey, int downScrollKey)```  
-* ```duration(Int ms)```
-* ```distance(Int ms)```
+* ```key(int upScrollKey, int downScrollKey)``` 
+* ```duration(Int ms)``` 
+* ```distance(Int dp)```
 * ```autoSpeed(Int dpps)```  display point per second
 
 
