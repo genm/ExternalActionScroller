@@ -1,4 +1,4 @@
-package jp.yitt.genm.externalactionscrolllayout;
+package jp.yitt.genm.externalactionscroller;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

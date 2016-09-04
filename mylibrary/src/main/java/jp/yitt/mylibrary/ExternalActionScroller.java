@@ -7,7 +7,7 @@ import android.widget.ListView;
 /**
  * Created by genm1023 on 9/3/16.
  */
-public class ExternalActionScrollLayout implements ScrollDirectionLister{
+public class ExternalActionScroller implements ScrollDirectionLister {
     private ListView listView;
     private int upScrollKey;
     private int downScrollKey;
@@ -15,64 +15,68 @@ public class ExternalActionScrollLayout implements ScrollDirectionLister{
     private int scrollDuration = 1200;
     private int scrollDistance = 250;
 
-    public static class Builder{
+    public static class Builder {
         private ListView listView;
         private int upScrollKey;
         private int downScrollKey;
-        private int scrollDuration = 1200;
-        private int scrollDistance = 250;
+        private int scrollDuration;
+        private int scrollDistance;
 
 
-        public Builder(ListView listView){
+        public Builder(ListView listView) {
             this.listView = listView;
 
         }
-        public Builder key(int upScrollKey,int downScrollKey){
+
+        public Builder key(int upScrollKey, int downScrollKey) {
             this.upScrollKey = upScrollKey;
             this.downScrollKey = downScrollKey;
 
             return this;
         }
-        public Builder duration(int ms){
+
+        public Builder duration(int ms) {
             this.scrollDuration = ms;
             return this;
         }
-        public Builder distance(int ms){
+
+        public Builder distance(int ms) {
             this.scrollDistance = ms;
             return this;
         }
 
-        public ExternalActionScrollLayout build(){
-            if(listView == null){
+        public ExternalActionScroller build() {
+            if (listView == null) {
                 throw new NullPointerException();
             }
-            return new ExternalActionScrollLayout(this);
+            return new ExternalActionScroller(this);
         }
     }
 
-    public ExternalActionScrollLayout(Builder builder){
-            this.listView = builder.listView;
-            this.upScrollKey = builder.upScrollKey;
-            this.downScrollKey = builder.downScrollKey;
+    public ExternalActionScroller(Builder builder) {
+        this.listView = builder.listView;
+        this.upScrollKey = builder.upScrollKey;
+        this.downScrollKey = builder.downScrollKey;
 
     }
-    public void setKey(int upScrollKey, int downScrollKey){
-        this.upScrollKey = upScrollKey;
-        this.downScrollKey = downScrollKey;
-    }
 
-    public void start(){
-        if (listView != null){
+    public void start() {
+        if (listView != null) {
             setListViewKeyEvent();
         }
 
 
     }
-    public void setReverseEnabled(boolean state){
+
+    public void stop() {
+
+    }
+
+    public void setReverseEnabled(boolean state) {
         this.reverceEnabled = state;
     }
 
-    private void setListViewKeyEvent(){
+    private void setListViewKeyEvent() {
         listView.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -123,10 +127,6 @@ public class ExternalActionScrollLayout implements ScrollDirectionLister{
 
     }
 
-    public void setDuration(int duration){
-        //
-    }
-
     @Override
     public void onScrollDown() {
         //listView.smoo
@@ -136,8 +136,6 @@ public class ExternalActionScrollLayout implements ScrollDirectionLister{
     public void onScrollUp() {
 
     }
-
-
 
 
 }

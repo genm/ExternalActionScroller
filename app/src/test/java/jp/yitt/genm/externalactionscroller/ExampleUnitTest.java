@@ -1,4 +1,4 @@
-package jp.yitt.genm.externalactionscrolllayout;
+package jp.yitt.genm.externalactionscroller;
 
 import org.junit.Test;
 

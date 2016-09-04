@@ -4,8 +4,16 @@ ExternalActionScroller is Android library for scrollable view component(Ex. List
 
 # How do I use it?
 ## Setup
+Gradle
 
+```
+
+```
 ## Functions
+
+## Support Component
+* ListView
+* 
 
 ## Simple
 ```
@@ -21,7 +29,7 @@ public class MyActivity extends Activity{
     ListView listView = (ListView)findViewById(R.id.listView);
     listView.setAdapter(adapter);
     
-    
+    ExternalActionScroller eas = new ExternalActionScroller.
         
   }
 
@@ -32,4 +40,6 @@ public class MyActivity extends Activity{
 
 
 ## Options
-* 
+* key
+* duration
+* distance

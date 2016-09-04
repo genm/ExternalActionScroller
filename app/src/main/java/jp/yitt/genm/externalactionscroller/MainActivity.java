@@ -1,4 +1,4 @@
-package jp.yitt.genm.externalactionscrolllayout;
+package jp.yitt.genm.externalactionscroller;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

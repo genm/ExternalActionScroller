@@ -1,8 +1,7 @@
-package jp.yitt.genm.externalactionscrolllayout;
+package jp.yitt.genm.externalactionscroller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -10,7 +9,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-import jp.yitt.mylibrary.ExternalActionScrollLayout;
+import jp.yitt.mylibrary.ExternalActionScroller;
 
 public class ListViewActivity extends AppCompatActivity {
 
@@ -30,7 +29,8 @@ public class ListViewActivity extends AppCompatActivity {
         ListView listView = (ListView)findViewById(R.id.listView);
         listView.setAdapter(adapter);
 
-        ExternalActionScrollLayout easl = new ExternalActionScrollLayout.Builder(listView).key(KeyEvent.KEYCODE_VOLUME_UP, KeyEvent.KEYCODE_VOLUME_DOWN).build();
+        ExternalActionScroller easl = new ExternalActionScroller.Builder(listView).key(KeyEvent.KEYCODE_VOLUME_UP, KeyEvent.KEYCODE_VOLUME_DOWN).build();
+
         easl.start();
 
 
