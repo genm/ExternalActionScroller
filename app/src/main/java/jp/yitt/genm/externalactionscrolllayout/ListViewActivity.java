@@ -25,11 +25,12 @@ public class ListViewActivity extends AppCompatActivity {
         for (int i=1; i<=100; i++){
             list.add("Item"+i);
         }
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
         ListView listView = (ListView)findViewById(R.id.listView);
         listView.setAdapter(adapter);
 
-        ExternalActionScrollLayout easl = new ExternalActionScrollLayout.Builder(listView).scrollKey(KeyEvent.KEYCODE_VOLUME_UP, KeyEvent.KEYCODE_VOLUME_DOWN).build();
+        ExternalActionScrollLayout easl = new ExternalActionScrollLayout.Builder(listView).key(KeyEvent.KEYCODE_VOLUME_UP, KeyEvent.KEYCODE_VOLUME_DOWN).build();
         easl.start();
 
 

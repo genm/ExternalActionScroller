@@ -1,9 +1,5 @@
 package jp.yitt.mylibrary;
 
-import android.app.Activity;
-import android.content.Context;
-import android.provider.Settings;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ListView;
@@ -23,18 +19,29 @@ public class ExternalActionScrollLayout implements ScrollDirectionLister{
         private ListView listView;
         private int upScrollKey;
         private int downScrollKey;
+        private int scrollDuration = 1200;
+        private int scrollDistance = 250;
 
 
         public Builder(ListView listView){
             this.listView = listView;
 
         }
-        public Builder scrollKey(int upScrollKey,int downScrollKey){
+        public Builder key(int upScrollKey,int downScrollKey){
             this.upScrollKey = upScrollKey;
             this.downScrollKey = downScrollKey;
 
             return this;
         }
+        public Builder duration(int ms){
+            this.scrollDuration = ms;
+            return this;
+        }
+        public Builder distance(int ms){
+            this.scrollDistance = ms;
+            return this;
+        }
+
         public ExternalActionScrollLayout build(){
             if(listView == null){
                 throw new NullPointerException();
@@ -49,7 +56,7 @@ public class ExternalActionScrollLayout implements ScrollDirectionLister{
             this.downScrollKey = builder.downScrollKey;
 
     }
-    public void setScrollKey(int upScrollKey, int downScrollKey){
+    public void setKey(int upScrollKey, int downScrollKey){
         this.upScrollKey = upScrollKey;
         this.downScrollKey = downScrollKey;
     }
