@@ -28,10 +28,5 @@
             android:text="@string/RecyclerViewSample"
             android:id="@+id/recycler_example_button"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button3"/>
     </LinearLayout>
 </RelativeLayout>
