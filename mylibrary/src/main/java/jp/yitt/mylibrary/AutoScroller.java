@@ -46,12 +46,22 @@ public class AutoScroller {
     private final Runnable autoScrollRunnable = new Runnable() {
         @Override
         public void run() {
-            if(direction == Direction.DOWN){
-                listView.smoothScrollBy(distance, INTERVAL);
-            }else{
-                listView.smoothScrollBy(-distance, INTERVAL);
+            if(listView != null){
+                if(direction == Direction.DOWN){
+                    listView.smoothScrollBy(distance, INTERVAL);
+                }else{
+                    listView.smoothScrollBy(-distance, INTERVAL);
+                }
+                autoScrollHandler.post(this);
+            }else if(recyclerView != null){
+                if(direction == Direction.DOWN){
+                    recyclerView.scrollBy(0, distance);
+                }else{
+                    recyclerView.scrollBy(0, -distance);
+                }
+                autoScrollHandler.post(this);
+
             }
-            autoScrollHandler.postDelayed(this,INTERVAL);
         }
     };
 }

@@ -1,6 +1,5 @@
 package jp.yitt.mylibrary;
 
-import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -101,7 +100,55 @@ public class ExternalActionScroller{
 
 
     private void setRecyclerViewKeyEvent(){
+        recyclerView.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                Log.d("KEY:",String.valueOf(event.getAction()));
+                switch (event.getAction()) {
+                    case KeyEvent.ACTION_UP:
 
+                        if (keyCode == upScrollKey) {
+                            if(!auto){
+                                recyclerView.smoothScrollBy(0, -scrollDistance);
+                            }
+                            auto = false;
+                            autoScroller.stop();
+                            return true;
+                        }
+                        if (keyCode == downScrollKey) {
+                            if(!auto){
+                                recyclerView.smoothScrollBy(0, scrollDistance);
+                            }
+                            auto = false;
+                            autoScroller.stop();
+                            return true;
+                        }
+
+                    case KeyEvent.ACTION_DOWN:
+
+                        if (keyCode == upScrollKey) {
+                            if (event.isLongPress()) {
+                                if(!auto){
+                                    autoScroller.start(AutoScroller.Direction.UP);
+                                    auto = true;
+                                }
+                            }
+                            return true;
+                        }
+                        if (keyCode == downScrollKey) {
+                            if (event.isLongPress()) {
+                                if(!auto){
+                                    autoScroller.start(AutoScroller.Direction.DOWN);
+                                    auto = true;
+                                }
+                            }
+                            return true;
+                        }
+                }
+                return false;
+            }
+
+        });
     }
     private void setListViewKeyEvent() {
         listView.setOnKeyListener(new View.OnKeyListener() {
