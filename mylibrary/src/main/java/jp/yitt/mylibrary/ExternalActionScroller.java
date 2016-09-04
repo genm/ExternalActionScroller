@@ -2,6 +2,7 @@ package jp.yitt.mylibrary;
 
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ListView;
@@ -106,7 +107,7 @@ public class ExternalActionScroller implements ScrollDirectionLister {
         listView.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-
+                Log.d("KEY:",String.valueOf(event.getAction()));
                 switch (event.getAction()) {
                     case KeyEvent.ACTION_UP:
 
@@ -128,17 +129,22 @@ public class ExternalActionScroller implements ScrollDirectionLister {
                         }
 
                     case KeyEvent.ACTION_DOWN:
+
                         if (keyCode == upScrollKey) {
                             if (event.isLongPress()) {
-                                autoScroller.start(AutoScroller.Direction.UP);
-                                auto = true;
+                                if(!auto){
+                                    autoScroller.start(AutoScroller.Direction.UP);
+                                    auto = true;
+                                }
                             }
                             return true;
                         }
                         if (keyCode == downScrollKey) {
                             if (event.isLongPress()) {
-                                autoScroller.start(AutoScroller.Direction.DOWN);
-                                auto = true;
+                                if(!auto){
+                                    autoScroller.start(AutoScroller.Direction.DOWN);
+                                    auto = true;
+                                }
                             }
                             return true;
                         }

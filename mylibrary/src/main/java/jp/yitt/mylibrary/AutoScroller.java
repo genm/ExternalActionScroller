@@ -14,8 +14,8 @@ public class AutoScroller {
     }
     Direction direction;
 
-    private static final int DEFAULT_SPEED = 100;
-    private static final int INTERVAL = 50;
+    private static final int DEFAULT_SPEED = 1000;
+    private static final int INTERVAL = 25;
     private ListView listView;
     private RecyclerView recyclerView;
     private int distance;
@@ -37,7 +37,7 @@ public class AutoScroller {
 
     public void start(Direction direction){
         this.direction = direction;
-        autoScrollHandler.postDelayed(autoScrollRunnable,INTERVAL);
+        autoScrollHandler.post(autoScrollRunnable);
     }
     public void stop(){
         autoScrollHandler.removeCallbacksAndMessages(null);
@@ -51,6 +51,7 @@ public class AutoScroller {
             }else{
                 listView.smoothScrollBy(-distance, INTERVAL);
             }
+            autoScrollHandler.postDelayed(this,INTERVAL);
         }
     };
 }
