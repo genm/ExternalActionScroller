@@ -13,9 +13,9 @@ Gradle
 
 ## Support Component
 * ListView
-* 
+* RecyclerView
 
-## Simple
+## ListView
 ```
 public class MyActivity extends Activity{
   public void onCreate(){
@@ -38,6 +38,10 @@ public class MyActivity extends Activity{
 
 ```
 
+## RecyclerView
+```
+
+``
 
 ## Options
 * key
