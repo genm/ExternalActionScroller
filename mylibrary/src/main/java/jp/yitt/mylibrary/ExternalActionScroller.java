@@ -10,7 +10,7 @@ import android.widget.ListView;
 /**
  * Created by genm1023 on 9/3/16.
  */
-public class ExternalActionScroller implements ScrollDirectionLister {
+public class ExternalActionScroller{
 
     private final int DEFAULT_DURATION = 1000;
     private final int DEFAULT_DISTANCE = 300;
@@ -153,16 +153,6 @@ public class ExternalActionScroller implements ScrollDirectionLister {
             }
 
         });
-
-    }
-
-    @Override
-    public void onScrollDown() {
-        //listView.smoo
-    }
-
-    @Override
-    public void onScrollUp() {
 
     }
 
