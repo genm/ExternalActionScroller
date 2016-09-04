@@ -13,8 +13,6 @@ import jp.yitt.mylibrary.ExternalActionScroller;
 
 public class ListViewActivity extends AppCompatActivity {
 
-    private String[] data = {"Cat","Dog","Mouse","Elephant","Lion","Penguin","Turtle","Dolphin","Crocodile","Monkey","Gorilla"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
