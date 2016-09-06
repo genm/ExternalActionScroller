@@ -1,6 +1,6 @@
 # ExternalActionScroller
 
-ExternalActionScroller is Android library for scrollable view component(Ex. ListView RecyclerView) can be scrolled by pressing the Hardware key on the you're Android smartphone :)
+ExternalActionScroller is Android library for scrollable view component(Ex. ListView RecyclerView) can be scrolled by pressing the Hardware key on the you're Android smartphone and External Device :)
 
 
 ## Support Component
@@ -13,7 +13,7 @@ ExternalActionScroller is Android library for scrollable view component(Ex. List
 Gradle
 
 ```
-
+compile 'jp.yitt:ExternalActionScroller:0.1.0'
 ```
 ## Functions
 
